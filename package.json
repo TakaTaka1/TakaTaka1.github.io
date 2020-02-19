@@ -1,0 +1,22 @@
+{
+  "name": "takataka1.github.io",
+  "version": "1.0.0",
+  "description": "For Landing Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TakaTaka1/TakaTaka1.github.io.git"
+  },
+  "keywords": [
+    "t_landing"
+  ],
+  "author": "TakaTaka1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TakaTaka1/TakaTaka1.github.io/issues"
+  },
+  "homepage": "https://github.com/TakaTaka1/TakaTaka1.github.io#readme"
+}
