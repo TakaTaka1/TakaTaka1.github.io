@@ -6,6 +6,10 @@ const sass = require("gulp-sass");
 const browser = require("browser-sync").create();
 // Plumber
 const plumber = require("gulp-plumber");
+// Browserify
+var browserify = require('browserify');
+// Vinyl-source-stream
+var source     = require('vinyl-source-stream');
 
 const paths = {
   'src': {
@@ -33,6 +37,7 @@ gulp.task('watch-files', function(done) {
     gulp.watch("./css/*.css", gulp.task('browser-reload'));
     gulp.watch("./js/*.js", gulp.task('browser-reload'));
     gulp.watch("./js/components/modules/*.vue", gulp.task('browser-reload'));
+    gulp.watch("./js/components/modules/*.js", gulp.task('browser-reload'));
     done();
     console.log(('gulp watch started'));
 });

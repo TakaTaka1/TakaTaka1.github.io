@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "For Landing Page",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,13 +22,15 @@
   "homepage": "https://github.com/TakaTaka1/TakaTaka1.github.io#readme",
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "browserify": "^16.5.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5"
+    "gulp-sourcemaps": "^2.6.5",
+    "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
     "node-gyp": "^6.1.0",
