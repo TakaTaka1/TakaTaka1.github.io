@@ -1,7 +1,7 @@
-var header = require('./components/modules/header.js');
-// var footer = require('./components/footer.vue');
-header.header();
-var app1 = new Vue({
-  el: '#app',                        /* #app-1 要素に対して Vue を適用する */
-  data: { message: 'Hello world!!!' }    /* message という名前のデータを定義する */
+var Vue = require('vue')
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue fff'
+  }
 })

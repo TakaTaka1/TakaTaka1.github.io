@@ -10,6 +10,10 @@ const plumber = require("gulp-plumber");
 var browserify = require('browserify');
 // Vinyl-source-stream
 var source     = require('vinyl-source-stream');
+// Autoprefixer
+var autoprefixer = require( 'gulp-autoprefixer' );
+// Envify
+var envify = require('envify/custom')
 
 const paths = {
   'src': {
@@ -20,7 +24,7 @@ const paths = {
   }
 };
 
-// Browser-syncのタスクを作成する
+// Create task Browser-sync
 gulp.task("build-server", function(done) {
     browser.init({
         server: {
@@ -31,11 +35,22 @@ gulp.task("build-server", function(done) {
     done();
 });
 
+// Create task browserify
+gulp.task('build_js', function() { // build というタスクを定義します
+  browserify({
+    'entries': ['./js/index.js']
+  }) // browserify の設定をして・・・
+  .bundle() // 一つのファイルにまとめたものを 
+  .pipe(source('bundle.js')) // bundle.js という名前のファイルに記録して
+  .pipe(gulp.dest('./')) // "./" に書き出します
+})
+
 // Observe files
 gulp.task('watch-files', function(done) {
     gulp.watch("./*.html", gulp.task('browser-reload'));
     gulp.watch("./css/*.css", gulp.task('browser-reload'));
     gulp.watch("./js/*.js", gulp.task('browser-reload'));
+    gulp.watch("./bundle.js", gulp.task('browser-reload'));
     gulp.watch("./js/components/modules/*.vue", gulp.task('browser-reload'));
     gulp.watch("./js/components/modules/*.js", gulp.task('browser-reload'));
     done();
@@ -61,4 +76,4 @@ gulp.task("sass", function(done) {
       // .pipe(browser.reload({stream:true}));
     done();
 });
-gulp.task('default', gulp.series( 'sass','build-server','watch-files'));
+gulp.task('default', gulp.series( 'sass','build-server','watch-files','build_js'));
